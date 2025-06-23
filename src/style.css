@@ -1,59 +1,110 @@
 body {
-   font-family: "Boldonse", system-ui;
+    font-family: "Boldonse", system-ui;
     background-color: #f0f4f8;
     margin: 0;
     padding: 0;
     font-weight: 400;
-  font-style: normal;
+    font-style: normal;
 }
 
+a {
+    color: pink;
+}
 
 .weatherapp {
+    background: white;
     max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 48px auto; 
+    box-shadow: 0 30px 55px rgba(65, 52, 101, 0.09);
+    border-radius: 18px;
+    padding: 20px; 
 }
 
 header {
-    text-align: center;
+    border-bottom: 1px solid #eed8f1;
+    padding: 0 0 30px 0;
+
 }
 
-.search-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-input[type="text"] {
-    padding: 10px;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 20px;
+.search-form-input {
+    background-color: #e0bbce;
     border: none;
+    border-radius: 6px;
+    width: 80%;
+    font-size: 20px;
+    padding: 15px 20px;
+}
+
+.search-form-button {
+    background: pink;
+    padding: 18px 26px;
+    border: none;
+    font-size: 16px;
+    margin-left: 9px;
     border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+    color: rgb(153, 28, 105);
 }
 
-button:hover {
-    background-color: #0056b3;
+main {
+    padding: 30px 0;
 }
 
-.weather-info {
-    text-align: center;
+
+.weather-app-data {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.weather-app-city {
+    margin: 0;
+    font-size: 39px;
+    line-height: 48px;
+}
+
+.weather-app-details {
+    font-size: 18px;
+    color: rgba(39, 33, 65, 0.4);
+    line-height: 28px;
+    font-weight: 600;
+
+
+}
+.weather-app-details strong {
+    color: #f65282
+}
+
+.weather-app-temperature-container { 
+    display: flex;
+}
+
+.weather-app-icon {
+ font-size: 50px;
+  margin-top: 28px;
+
+}
+
+.weather-app-temperature {
+      font-size: 82px;
+  margin-left: 9px;
+  font-weight: bold;
+
+}
+
+.weatehr-app-unit {
+    margin-top: 18px;
+    font-size: 30px;
 }
 
 footer {
+    border-top: 1px solid #f9f7fe;
+    padding: 10px 0 0 0;
     text-align: center;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #777;
+    font-weight: 300;
+    font-size: 11px;
+
+    color: #242121;
 }
+
+
+ 
