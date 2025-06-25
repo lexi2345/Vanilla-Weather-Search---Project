@@ -8,13 +8,24 @@ a {
 }
 
 .weather-app {
-  background: white;
-  max-width: 600px;
-  margin: 45px auto;
-  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
-  border-radius: 16px;
-  padding: 30px;
+ 
+  max-width: 900px;
+  margin: 65px auto;
+  padding: 100px;
+  background: linear-gradient(135deg, #f0f4f8, #e1e8ed);
+  border: 1px solid #d1d9dc;
+  border-radius: 45px;
+  box-shadow: 0 10px 30px rgba(65, 50, 100, 0.1);
+  transition: all 0.3s ease;
+
 }
+
+.weather-app:hover {
+  /* Hover Effect */
+  box-shadow: 0 20px 40px rgba(45, 36, 66, 0.2);
+  background: linear-gradient(135deg, #f1f4f5, #f0f4f8); /* Reverse gradient on hover */
+}
+
 
 header {
   border-bottom: 1px solid #f9f7fe;
@@ -42,7 +53,15 @@ background: #a33d70;
 }
 
 .search-form-button:hover {
-    background: #5c102e; /* Darker pink on hover for feedback */
+  /* Hover Effect */
+  background: linear-gradient(135deg, #c56e92, #a33d70); /* Reverse gradient on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.search-form-button:active {
+  /* Active State */
+  background: #932354; /* Darker shade on active */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
 }
 
 main {
@@ -74,7 +93,7 @@ main {
 }
 
 .weather-app-temperature-container {
-    display: flex;
+    display:inline-flex;
 }
 
 .weather-app-icon {
@@ -87,6 +106,8 @@ main {
     font-size: 88px; 
     margin-left: 10px; 
     color: #aa3b5d;
+  line-height: 88px;
+  font-weight: bold;
 }
 
 .weather-app-unit {
@@ -95,6 +116,75 @@ main {
     color: #631e33; 
 }
 
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.weather-forecast-date {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.weather-forecast-icon {
+  font-size: 38px;
+  text-align: center;
+}
+.weather-forecast-temperatures {
+  text-align: center;
+  color: #f65282;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-forecast-temperature {
+  padding: 0 10px;
+}
+
+.weather-forecast-container {
+  background: white;
+  max-width: 600px;
+  margin: 45px auto;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  line-height: normal;
+  position: relative; /* Added for positioning the symbols */
+}
+
+.temperature-divider {
+  border-top: 1px solid #cccccc; /* Divider */
+  margin: 20px 0; /* Space around the divider */
+  text-align: center;
+
+}
+
+.column {
+  display: inline-block; /* Make columns inline */
+  width: 30%; /* Adjust the width as needed */
+  vertical-align: top; /* Align columns at the top */
+  padding: 10px; /* Optional padding for columns */
+}
+
+.column-divider {
+  border-left: 1px solid #cccccc; /* Column divider */
+  height: 100%; /* Match height of the column */
+  position: absolute; /* Positioning */
+  left: 100%; /* Right of the column */
+  top: 0; /* Start at the top */
+}
+
+
+
+
+
+
+
 footer {
     border-top: 1px solid #b44163; 
     padding: 30px 0 0 0;
@@ -102,3 +192,23 @@ footer {
     font-size: 14px; 
     color: #000000; 
 }
+
+        #suggestions {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none; /* Hidden by default */
+            position: absolute;
+            background: white;
+            z-index: 1000;
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+
+
+
