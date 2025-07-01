@@ -13,147 +13,108 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>WeatherWay Farer</title>
 </head>
+ <body class="sunny day">
+    <div class="container">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="location-info">
+          <div class="location-name" id="currentLocation">Atlanta, GA</div>
+          <div class="date-time" id="currentDateTime">Loading...</div>
+        </div>
+        <svg
+          class="settings-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path
+            d="m12 1 0 6m0 6 0 6m11-7-6 0m-6 0-6 0m15.5-3.5-4.24 4.24m-8.48 0L2.5 8.5m12.73 12.73L10.99 16.99m0-8.48L15.23 2.77"
+          ></path>
+        </svg>
+      </div>
 
-<body>
-    <div class="weather-app">
-        <header>
-            <form class="search-form" id="search-form">
-                <input type="search" placeholder="Enter a city.." required id="search-form-input"
-                    class="search-form-input" list="city-options" />
-                <datalist id="city-options">
-                    <option value="New York"></option>
-                    <option value="Los Angeles"></option>
-                    <option value="Chicago"></option>
-                    <option value="Houston"></option>
-                    <option value="Phoenix"></option>
-                    <option value="Philadelphia"></option>
-                    <option value="San Antonio"></option>
-                    <option value="San Diego"></option>
-                    <option value="Dallas"></option>
-                    <option value="San Jose"></option>
-                </datalist>
-                <input type="submit" value="search" class="search-form-button" />
-            </form>
-        </header>
-        <main>
-            <div class="weather-app-data">
-                <div>
-                    <h1 class="weather-app-city" id="city"></h1>
-                    <p class=" weather-app-details">
-                        <span id="time"></span>,
-                        <span id="description"></span>
-                        <br />
-                        Humidity: <strong id="humidity"></strong>, Wind:
-                        <strong id="wind-speed"></strong>
-                    </p>
-                </div>
-                <div class="weather-app-temperature-container"></div>
-                <div class="weather-app-icon"></div>
-                <div class="weather-app-temperature" id="temperature"></div>
-                <div class="weatehr-app-unit">°F</div>
-            </div>
-    </div>
-    <div class="weather-forecast-container">
-        <div class="temperature-divider">
-            <div class="weather-forecast">
-                <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">Tue</div>
-                    <div class="weather-forecast-icon">🌤️</div>
-                    <div class="weather-forecast-temperatures">
-                        <div class="weather-forecast-temperature">
-                            <strong>15º</strong>
-                        </div>
-                        <div class="weather-forecast-temperature">9º</div>
-                    </div>
-                </div>
-                <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">Wed</div>
-                    <div class="weather-forecast-icon">🌤️</div>
-                    <div class="weather-forecast-temperatures">
-                        <div class="weather-forecast-temperature">
-                            <strong>15º</strong>
-                        </div>
-                        <div class="weather-forecast-temperature">9º</div>
-                    </div>
-                </div>
-                <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">Thur</div>
-                    <div class="weather-forecast-icon">🌤️</div>
-                    <div class="weather-forecast-temperatures">
-                        <div class="weather-forecast-temperature">
-                            <strong>15º</strong>
-                        </div>
-                        <div class="weather-forecast-temperature">9º</div>
-                    </div>
-                </div>
-                <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">Fri</div>
-                    <div class="weather-forecast-icon">🌤️</div>
-                    <div class="weather-forecast-temperatures">
-                        <div class="weather-forecast-temperature">
-                            <strong>15º</strong>
-                        </div>
-                        <div class="weather-forecast-temperature">9º</div>
-                    </div>
-                </div>
-                <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">Sat</div>
-                    <div class="weather-forecast-icon">🌤️</div>
-                    <div class="weather-forecast-temperatures">
-                        <div class="weather-forecast-temperature">
-                            <strong>15º</strong>
-                        </div>
-                        <div class="weather-forecast-temperature">9º</div>
-                    </div>
-                </div>
-            </div>
+      <!-- Search Container -->
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          id="citySearch"
+          placeholder="Try searching: Tokyo, London, Sydney..."
+          autocomplete="off"
+        />
+        <div class="dropdown" id="searchDropdown"></div>
+      </div>
+
+      <!-- Main Weather Display -->
+      <div class="main-weather">
+        <div class="weather-icon" id="mainWeatherIcon">
+          <svg viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="25" fill="#FFB300" opacity="0.9" />
+            <g stroke="#FFB300" stroke-width="3" stroke-linecap="round">
+              <line x1="60" y1="15" x2="60" y2="25" />
+              <line x1="60" y1="95" x2="60" y2="105" />
+              <line x1="105" y1="60" x2="95" y2="60" />
+              <line x1="25" y1="60" x2="15" y2="60" />
+              <line x1="90.71" y1="29.29" x2="84.85" y2="35.15" />
+              <line x1="35.15" y1="84.85" x2="29.29" y2="90.71" />
+              <line x1="90.71" y1="90.71" x2="84.85" y2="84.85" />
+              <line x1="35.15" y1="35.15" x2="29.29" y2="29.29" />
+            </g>
+          </svg>
         </div>
 
+        <div class="temperature-section">
+          <div class="temperature" id="mainTemp">78°F</div>
+          <div class="main-thermometer">
+            <div class="thermometer-tube">
+              <div class="thermometer-mercury" id="mainThermometer"></div>
+              <div class="thermometer-bulb"></div>
+            </div>
+            <div class="temp-scale">
+              <span>100°</span>
+              <span>80°</span>
+              <span>60°</span>
+              <span>40°</span>
+              <span>20°</span>
+            </div>
+          </div>
+        </div>
+        <div class="weather-description" id="weatherDesc">Mostly Sunny</div>
+      </div>
+      <div class="details-row">
+        <div class="detail-item">
+          <div class="detail-label">Humidity</div>
+          <div class="detail-value" id="humidity">55%</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Wind</div>
+          <div class="detail-value" id="wind">12 mph</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Feels like</div>
+          <div class="detail-value" id="feelsLike">80°F</div>
+        </div>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </main>
-
-        <footer>
-            Coded by
-            <a href="https://github.com/lexi2345" target="_blank">Lexi Cantrell</a>,
-            code hosted <a href="https://github.com/lexi2345/Vanilla-Weather-Search---Project" target="_blank">on
-                Github</a>
-            and website hosted <a href="https://weatherwayfarer.netlify.app/" target="_blank">on Netlify</a>
-        </footer>
+      <!-- Forecast Preview -->
+      <div class="forecast-preview">
+        <div class="forecast-title">5-Day Forecast</div>
+        <div class="forecast-scroll" id="forecastContainer">
+          <!-- Forecast cards will be generated by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- IMPROVED FOOTER -->
+      <footer>
+        Coded by
+        <a href="https://github.com/lexi2345" target="_blank">Lexi Cantrell</a>,
+        code hosted <a href="https://github.com/lexi2345/Vanilla-Weather-Search---Project" target="_blank">on Github</a>
+        and website hosted <a href="https://weatherwayfarer.netlify.app/" target="_blank">on Netlify</a>
+      </footer>
     </div>
+
     <script src="src/index.js"></script>
 </body>
-
 </html>
